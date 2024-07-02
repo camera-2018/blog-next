@@ -1,0 +1,216 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+/**
+ * Colors
+ * -------------------------------------------------------------------------- */
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap'); */
+
+.dark .vp-doc a,#loading, .dark .vp-doc a>code, .dark .VPNavBarMenuLink.VPNavBarMenuLink:hover, .dark .VPNavBarMenuLink.VPNavBarMenuLink.active, .dark .link.link:hover, .dark .link.link.active, .dark .edit-link-button.edit-link-button, .dark .pager-link .title {
+  color: var(--vp-c-brand-3);
+}
+
+/**
+ * 这个版本可能有 bug，build 后字体变不了还为 consolas 可能是我自己配的有问题 可能是这个版本拉了 总之就加个临时的
+ * -------------------------------------------------------------------------- */
+code { 
+  font-family: 'Noto Sans Mono', sans-serif, monospace, consolas !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+}
+
+:root {
+  --vp-c-brand-1: #0dadc4;
+  --vp-c-brand-2: #1A9CED;
+  --vp-c-brand-3: #1CA8FF;
+  --vp-c-brand-soft: #5EB2E6;
+  --vp-code-copy-copied-text-content: '复制成功';
+  --vp-code-color: rgba(60, 60, 67);
+  --vp-custom-block-tip-bg: rgba(100, 108, 255, 0.16) !important;
+  --vp-badge-tip-bg: rgba(100, 108, 255, 0.16) !important;
+}
+
+.dark {
+  --vp-code-color: rgba(255, 255, 245, 0.86);
+}
+
+:root {
+  --vp-font-family-base: 'Noto Sans SC', 'Noto Color Emoji', sans-serif;
+  --vp-font-family-mono: 'Noto Sans Mono', sans-serif, monospace, consolas;
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #08BAB6,
+    #1994E1,
+    #0B52BF
+  );
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #08BAB6 50%,
+    #1994E1 50%,
+    #0B52BF 50%
+  );
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(72px);
+  }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+mjx-container {
+  display: inline-block;
+  margin: auto;
+}
+
+
+.VPHero .image-bg {
+  z-index: -1;
+  opacity: 0.8;
+  transition: opacity 1s ease;
+}
+
+.VPHero .image-container:hover .image-bg {
+  opacity: 1;
+}
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    var(--vp-c-brand) 30%,
+    var(--vp-c-brand-next)
+  );
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    var(--vp-c-brand) 30%,
+    var(--vp-c-brand-next)
+  );
+  --vp-home-hero-image-filter: blur(80px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(120px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(120px);
+  }
+}
+
+/* Safari has a very bad performance on gradient and filter */
+.browser-safari, .browser-firefox {
+  --vp-home-hero-name-color: var(--vp-c-brand);
+  --vp-home-hero-name-background: transparent;
+  --vp-home-hero-image-background-image: transparent;
+  --vp-home-hero-image-filter: '';
+}
+
+.jp-MarkdownOutput{
+  color: #3c3c43 !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+}
+
+.dark .jp-MarkdownOutput{
+  color: #dfdfd7 !important;
+  font-family: 'Noto Sans SC', 'Noto Color Emoji', sans-serif !important;
+}
+
+.jp-InputArea-editor{
+  border-radius: 8px !important;
+}
+
+.cm-content{
+  font-family: 'Noto Sans Mono', sans-serif, monospace, consolas !important;
+  background-color: #f6f6f7 !important;
+}
+
+.dark .cm-content{
+  font-family: 'Noto Sans Mono', sans-serif, monospace, consolas !important;
+  background-color: #161618 !important;
+}
+
+.dark .ͼw , .dark .ͼ19, .dark .cm-line{
+  color: #E1E4E8 !important;
+}
+
+.jp-RenderedHTMLCommon :not(pre) > code {
+  background-color: var(--vp-c-mute) !important;
+}
+
+.VPImage {
+  user-drag: none !important;
+  -webkit-user-drag: none !important;
+  -moz-user-drag: none !important;
+}
+
+.custom-block.tip code {
+  background-color: rgba(100, 108, 255, 0.14);
+}
+
+mjx-container > svg {
+  display: inline-block;
+}
+
+.medium-zoom-overlay {
+  z-index: 99;
+}
+
+.medium-zoom-image {
+  z-index: 99;
+}
