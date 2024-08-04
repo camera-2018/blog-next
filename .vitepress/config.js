@@ -1,11 +1,33 @@
 // import { defineConfig } from 'vitepress'
 import { withMermaid } from "vitepress-plugin-mermaid";
-import { main_sidebar, chapter2, chapter3, chapter4, chapter5, chapter6, chapter7, chapter8, chapter9 } from './sidebar.js';
 import { nav } from './nav.js';
 import PanguPlugin from 'markdown-it-pangu'
 import { fileURLToPath, URL } from 'node:url'
 import VueMacros from 'unplugin-vue-macros/vite'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
+import { generateSidebar } from 'vitepress-sidebar';
+import { read } from "node:fs";
+
+function addDocsPrefix(data) {
+  // 遍历数组中的每个对象
+  data.forEach(item => {
+    // 如果对象有 items 数组，递归调用函数
+    if (item.items) {
+      addDocsPrefix(item.items);
+    }
+    // 如果对象有 link 属性，为 link 值添加前缀
+    if (item.link) {
+      item.link = '/docs' + item.link;
+    }
+  });
+  return data;
+}
+
+const vitepressSidebarOptions = {
+  documentRootPath: "/docs",
+  hyphenToSpace: true,
+  useTitleFromFileHeading: true,
+};
 
 const config = {
   title: "xyxsw's blog",
@@ -53,9 +75,7 @@ export default withMermaid({
     // https://vitepress.dev/reference/default-theme-config
     nav: nav(),
 
-    sidebar: {
-      '/': main_sidebar(),
-    },
+    sidebar: addDocsPrefix(generateSidebar(vitepressSidebarOptions)),
     outline: [2, 6],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/camera-2018/' }
