@@ -4,3 +4,4 @@ cache
 .temp
 .vitepress/dist
 dev-dist
+pnpm-lock.yaml
