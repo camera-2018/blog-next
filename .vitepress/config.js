@@ -6,21 +6,28 @@ import { fileURLToPath, URL } from 'node:url'
 import VueMacros from 'unplugin-vue-macros/vite'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import { generateSidebar } from 'vitepress-sidebar';
-import { read } from "node:fs";
+import { RssPlugin } from 'vitepress-plugin-rss'
 
 function addDocsPrefix(data) {
-  // 遍历数组中的每个对象
   data.forEach(item => {
-    // 如果对象有 items 数组，递归调用函数
     if (item.items) {
       addDocsPrefix(item.items);
     }
-    // 如果对象有 link 属性，为 link 值添加前缀
     if (item.link) {
       item.link = '/docs' + item.link;
     }
   });
   return data;
+}
+
+const RSS = {
+  title: 'xyxsw 的博客',
+  baseUrl: 'https://xyxsw.site',
+  copyright: 'Copyright (c) 2024-present, xyxsw 的博客',
+  filename: 'feed.xml',
+  log: true,
+  language: 'zh-cn',
+  icon: true,
 }
 
 const vitepressSidebarOptions = {
@@ -110,6 +117,7 @@ export default withMermaid({
   vite: {
     plugins: [
       VueMacros(),
+      RssPlugin(RSS)
     ],
     resolve: {
       alias: [
