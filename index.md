@@ -17,14 +17,4 @@ hero:
       text: GitHub
       link: https://github.com/camera-2018/
 
-features:
-  - title: 😎
-    details: 
-  - title: 🤧
-    details:
-  - title: 😭
-    details:
-  - title: 🤣
-    details:
-
 ---
