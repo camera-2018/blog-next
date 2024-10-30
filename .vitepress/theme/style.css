@@ -7,25 +7,33 @@
  * -------------------------------------------------------------------------- */
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap'); */
 
-.dark .vp-doc a,#loading, .dark .vp-doc a>code, .dark .VPNavBarMenuLink.VPNavBarMenuLink:hover, .dark .VPNavBarMenuLink.VPNavBarMenuLink.active, .dark .link.link:hover, .dark .link.link.active, .dark .edit-link-button.edit-link-button, .dark .pager-link .title {
+.dark .vp-doc a,
+#loading,
+.dark .vp-doc a > code,
+.dark .VPNavBarMenuLink.VPNavBarMenuLink:hover,
+.dark .VPNavBarMenuLink.VPNavBarMenuLink.active,
+.dark .link.link:hover,
+.dark .link.link.active,
+.dark .edit-link-button.edit-link-button,
+.dark .pager-link .title {
   color: var(--vp-c-brand-3);
 }
 
 /**
  * 这个版本可能有 bug，build 后字体变不了还为 consolas 可能是我自己配的有问题 可能是这个版本拉了 总之就加个临时的
  * -------------------------------------------------------------------------- */
-code { 
-  font-family: 'Noto Sans Mono', sans-serif, monospace, consolas !important;
+code {
+  font-family: "Noto Sans Mono", sans-serif, monospace, consolas !important;
   font-weight: 400 !important;
   font-size: 14px !important;
 }
 
 :root {
   --vp-c-brand-1: #0dadc4;
-  --vp-c-brand-2: #1A9CED;
-  --vp-c-brand-3: #1CA8FF;
-  --vp-c-brand-soft: #5EB2E6;
-  --vp-code-copy-copied-text-content: '复制成功';
+  --vp-c-brand-2: #1a9ced;
+  --vp-c-brand-3: #1ca8ff;
+  --vp-c-brand-soft: #5eb2e6;
+  --vp-code-copy-copied-text-content: "复制成功";
   --vp-code-color: rgba(60, 60, 67);
   --vp-custom-block-tip-bg: rgba(100, 108, 255, 0.16) !important;
   --vp-badge-tip-bg: rgba(100, 108, 255, 0.16) !important;
@@ -36,8 +44,8 @@ code {
 }
 
 :root {
-  --vp-font-family-base: 'Noto Sans SC', 'Noto Color Emoji', sans-serif;
-  --vp-font-family-mono: 'Noto Sans Mono', sans-serif, monospace, consolas;
+  --vp-font-family-base: "Noto Sans SC", "Noto Color Emoji", sans-serif;
+  --vp-font-family-mono: "Noto Sans Mono", sans-serif, monospace, consolas;
 }
 
 /**
@@ -64,16 +72,16 @@ code {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(
     120deg,
-    #08BAB6,
-    #1994E1,
-    #0B52BF
+    #08bab6,
+    #1994e1,
+    #0b52bf
   );
 
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
-    #08BAB6 50%,
-    #1994E1 50%,
-    #0B52BF 50%
+    #08bab6 50%,
+    #1994e1 50%,
+    #0b52bf 50%
   );
   --vp-home-hero-image-filter: blur(40px);
 }
@@ -114,7 +122,6 @@ mjx-container {
   margin: auto;
 }
 
-
 .VPHero .image-bg {
   z-index: -1;
   opacity: 0.8;
@@ -153,40 +160,43 @@ mjx-container {
 }
 
 /* Safari has a very bad performance on gradient and filter */
-.browser-safari, .browser-firefox {
+.browser-safari,
+.browser-firefox {
   --vp-home-hero-name-color: var(--vp-c-brand);
   --vp-home-hero-name-background: transparent;
   --vp-home-hero-image-background-image: transparent;
-  --vp-home-hero-image-filter: '';
+  --vp-home-hero-image-filter: "";
 }
 
-.jp-MarkdownOutput{
+.jp-MarkdownOutput {
   color: #3c3c43 !important;
   font-weight: 400 !important;
   font-size: 16px !important;
 }
 
-.dark .jp-MarkdownOutput{
+.dark .jp-MarkdownOutput {
   color: #dfdfd7 !important;
-  font-family: 'Noto Sans SC', 'Noto Color Emoji', sans-serif !important;
+  font-family: "Noto Sans SC", "Noto Color Emoji", sans-serif !important;
 }
 
-.jp-InputArea-editor{
+.jp-InputArea-editor {
   border-radius: 8px !important;
 }
 
-.cm-content{
-  font-family: 'Noto Sans Mono', sans-serif, monospace, consolas !important;
+.cm-content {
+  font-family: "Noto Sans Mono", sans-serif, monospace, consolas !important;
   background-color: #f6f6f7 !important;
 }
 
-.dark .cm-content{
-  font-family: 'Noto Sans Mono', sans-serif, monospace, consolas !important;
+.dark .cm-content {
+  font-family: "Noto Sans Mono", sans-serif, monospace, consolas !important;
   background-color: #161618 !important;
 }
 
-.dark .ͼw , .dark .ͼ19, .dark .cm-line{
-  color: #E1E4E8 !important;
+.dark .ͼw,
+.dark .ͼ19,
+.dark .cm-line {
+  color: #e1e4e8 !important;
 }
 
 .jp-RenderedHTMLCommon :not(pre) > code {

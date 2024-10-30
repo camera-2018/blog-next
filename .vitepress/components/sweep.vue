@@ -1,5 +1,5 @@
-<script setup>
-import { GamePlay } from '../composables/logic.js'
+<script setup lang="ts">
+import { GamePlay } from '../composables/logic'
 import { useNow, useStorage } from '@vueuse/core'
 import { watchEffect } from 'vue'
 import MineBlock from './MineBlock.vue'

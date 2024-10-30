@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import confetti from 'canvas-confetti'
 import { watch } from 'vue'
 

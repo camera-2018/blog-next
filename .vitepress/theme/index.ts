@@ -10,7 +10,6 @@ import Archives from './components/Archives.vue'
 import Category from './components/Category.vue'
 import Tags from './components/Tags.vue'
 import Page from './components/Page.vue'
-import Comment from './components/Comment.vue'
 import './style.css'
 import './rainbow.css'
 import './custom.css'
@@ -32,7 +31,6 @@ export default {
     ctx.app.component('Category', Category)
     ctx.app.component('Archives', Archives)
     ctx.app.component('Page', Page)
-    ctx.app.component('Comment', Comment)
     ctx.app.use(TwoslashFloatingVue)
     if (typeof window === 'undefined')
       return

@@ -3,7 +3,10 @@ title: DNS 与 Pdns OpenWrt DNS 递归服务器搭建与 MosDNS 分流
 date: 2023-10-18 22:43:02
 tags: 
 - DN11
+description: 这篇文章详细介绍了如何在 OpenWrt 上搭建 DNS 递归服务器和使用 MosDNS 进行 DNS 分流。内容涵盖了 DNS 基础知识、常见 DNS 记录类型、DNS 服务器的工作方式，以及具体的配置步骤。通过安装和配置 PowerDNS（pdns）和 MosDNS，用户可以实现高效的 DNS 解析和分流功能。文章提供了详细的操作指南和配置文件示例，帮助用户在 OpenWrt 环境中轻松搭建和管理 DNS 服务器。
+category: 配网
 ---
+
 # DNS
 
 ## 什么是DNS

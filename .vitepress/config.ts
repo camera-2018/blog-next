@@ -38,7 +38,7 @@ export default withMermaid({
   title: "xyxsw's blog",
   description: "xyxsw's blog",
   base: '/',
-  lastUpdated: true,
+  lastUpdated: false,
   cleanUrls: false,
   head: [
     ['script', { async: "async", src: 'https://cloud.umami.is/script.js', "data-website-id": "9bd40f69-cec9-4b65-b832-481fbbe3e917", "data-domains": "xyxsw.site,xyxsw.ltd" }],
@@ -77,10 +77,6 @@ export default withMermaid({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/camera-2018/' }
     ],
-    footer: {
-      message: '<a href="https://beian.miit.gov.cn/" target="_blank">津ICP备2021004845号</a>',
-      copyright: 'Copyright © 2024 xyxsw'
-    },
     search: {
       provider: 'local'
     },
