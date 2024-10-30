@@ -4,7 +4,6 @@ import PanguPlugin from 'markdown-it-pangu'
 import { fileURLToPath, URL } from 'node:url'
 import VueMacros from 'unplugin-vue-macros/vite'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
-import { generateSidebar } from 'vitepress-sidebar';
 import { RssPlugin } from 'vitepress-plugin-rss'
 import { getPosts } from './theme/serverUtils'
 
@@ -19,12 +18,6 @@ const RSS = {
   language: 'zh-cn',
   icon: true,
 }
-
-const vitepressSidebarOptions = {
-  documentRootPath: "/docs",
-  hyphenToSpace: true,
-  useTitleFromFileHeading: true,
-};
 
 const config = {
   title: "xyxsw's blog",
