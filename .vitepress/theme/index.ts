@@ -15,6 +15,8 @@ import './rainbow.css'
 import './custom.css'
 import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import '@shikijs/vitepress-twoslash/style.css'
+import vitepressNprogress from 'vitepress-plugin-nprogress'
+import 'vitepress-plugin-nprogress/lib/css/index.css'
 
 let homePageStyle: HTMLElement | undefined
 
@@ -32,6 +34,7 @@ export default {
     ctx.app.component('Archives', Archives)
     ctx.app.component('Page', Page)
     ctx.app.use(TwoslashFloatingVue)
+    vitepressNprogress(ctx)
     if (typeof window === 'undefined')
       return
     watch(

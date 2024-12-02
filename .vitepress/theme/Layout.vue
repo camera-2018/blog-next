@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import { nextTick, provide } from 'vue'
+import { nextTick, onMounted, provide, watch } from 'vue'
 import { useMediumZoom } from './useMediumZoom';
+import { useRoute } from 'vitepress/dist/client/app/router'
+
+const route = useRoute()
 const { isDark } = useData()
 
 const enableTransitions = () =>
@@ -39,6 +42,21 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }) => {
   
 })
 
+onMounted(() => {
+  watch(() => route.path, async () => {
+    if (!enableTransitions()) return
+
+    const contentContainer = document.querySelector('.content-container') as HTMLElement
+    if (contentContainer) {
+      contentContainer.classList.add('fly-in')
+      await nextTick()
+      setTimeout(() => {
+        contentContainer.classList.remove('fly-in')
+      }, 300)
+    }
+  })
+})
+  
 useMediumZoom()
 </script>
 
@@ -69,5 +87,20 @@ useMediumZoom()
 
 .VPSwitchAppearance .check {
   transform: none !important;
+}
+
+@keyframes flyIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-container.fly-in {
+  animation: flyIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 </style>

@@ -10,6 +10,7 @@
   <Copyright />
 </template>
 <script setup lang="ts">
+import Layout from '../Layout.vue';
 import DefaultTheme from 'vitepress/theme'
 import Copyright from './Copyright.vue'
 import { withBase } from "vitepress";
@@ -17,7 +18,6 @@ import { useData } from 'vitepress'
 import { nextTick, provide } from 'vue'
 import { useMediumZoom } from '../useMediumZoom';
 const { isDark } = useData()
-const { Layout } = DefaultTheme
 
 const enableTransitions = () =>
   'startViewTransition' in document &&

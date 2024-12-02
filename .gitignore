@@ -5,3 +5,4 @@ cache
 .vitepress/dist
 dev-dist
 pnpm-lock.yaml
+package-lock.json
