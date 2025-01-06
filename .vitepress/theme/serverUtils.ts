@@ -1,10 +1,11 @@
 import { globby } from "globby";
 import matter from "gray-matter";
 import fs from "fs-extra";
-import { resolve } from "path";
+import { resolve, dirname, basename } from "path";
+import { categories } from "@vueuse/core/metadata.cjs";
 
 async function getPosts(pageSize: number) {
-  let paths = await globby(["posts/**.md"]);
+  let paths = await globby(["posts/**/**.md"]);
 
   //生成分页页面markdown
   await generatePaginationPages(paths.length, pageSize);
@@ -13,9 +14,25 @@ async function getPosts(pageSize: number) {
     paths.map(async (item) => {
       const content = await fs.readFile(item, "utf-8");
       const { data } = matter(content);
-      data.date = _convertDate(data.date);
+      
+      // 获取文件状态
+      const stats = await fs.stat(item);
+      
+      // 从路径获取tags
+      const pathParts = dirname(item).split('/');
+      const tags = pathParts.slice(1); // 排除 'posts' 目录
+      
+      // 如果没有frontmatter，使用默认值
+      const frontMatter = {
+        title: data.title || basename(item, '.md'),
+        date: data.date ? _convertDate(data.date) : _convertDate(stats.mtime),
+        tags: data.tags || tags,
+        category: data.category || '',
+        description: data.description || "",
+      };
+
       return {
-        frontMatter: data,
+        frontMatter,
         regularPath: `/${item.replace(".md", ".html")}`,
       };
     })
