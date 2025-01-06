@@ -3,7 +3,7 @@ import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { nextTick, onMounted, provide, watch } from 'vue'
 import { useMediumZoom } from './useMediumZoom';
-import { useRoute } from 'vitepress/dist/client/app/router'
+import { useRoute } from 'vitepress'
 
 const route = useRoute()
 const { isDark } = useData()

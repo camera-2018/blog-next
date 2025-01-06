@@ -9,7 +9,7 @@
     "globby": "^14.0.2",
     "fs-extra": "^11.2.0",
     "gray-matter": "^4.0.3",
-    "@vueuse/core": "^12.0.0",
+    "@vueuse/core": "^12.3.0",
     "canvas-confetti": "^1.9.3",
     "markdown-it-pangu": "^1.0.2",
     "medium-zoom": "^1.1.0",
@@ -17,16 +17,16 @@
   },
   "devDependencies": {
     "@mermaid-js/mermaid-mindmap": "^9.3.0",
-    "@shikijs/vitepress-twoslash": "^1.24.0",
+    "@shikijs/vitepress-twoslash": "^1.26.1",
     "markdown-it-mathjax3": "^4.3.2",
     "mermaid": "^11.4.1",
-    "unplugin-vue-macros": "^2.13.4",
+    "unplugin-vue-macros": "^2.13.7",
     "vitepress": "^1.5.0",
     "vitepress-plugin-mermaid": "^2.0.17",
     "vitepress-plugin-nprogress": "^0.0.4"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.28.0",
-    "@rollup/rollup-win32-x64-msvc": "^4.28.0"
+    "@rollup/rollup-linux-x64-gnu": "^4.30.0",
+    "@rollup/rollup-win32-x64-msvc": "^4.30.0"
   }
 }
