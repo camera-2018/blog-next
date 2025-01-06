@@ -21,7 +21,7 @@ treeshaking：
 
 tree-shaking 仅支持 ESM 的静态导入语法，对于 CMJ 或者 ESM 中的动态导入不支持 tree shaking。
 
-1. 标记webpack 在分析依赖时，会使用注释的方式对导入和导出进行标记，对于模块中没有被其他模块用到的导出标记为 unused harmony export
+1. 标记 webpack 在分析依赖时，会使用注释的方式对导入和导出进行标记，对于模块中没有被其他模块用到的导出标记为 unused harmony export
 2. 删除之后在 Uglifyjs (或者其他类似的工具) 步骤进行代码精简，把标记为无用的代码删除。
 
 打包原理：
@@ -48,8 +48,8 @@ tree-shaking 仅支持 ESM 的静态导入语法，对于 CMJ 或者 ESM 中的�
 
 加快打包速度：
 
-1. noParse很多第三方库本身就是已经打包好的代码，对于这种代码无须再进行解析，可以使用 noParse 配置排除掉这些第三方库
-2. externals对于一些知名的第三方库可以使用 CDN，这部分库可以通过 externals 配置不进行打包
+1. noParse 很多第三方库本身就是已经打包好的代码，对于这种代码无须再进行解析，可以使用 noParse 配置排除掉这些第三方库
+2. externals 对于一些知名的第三方库可以使用 CDN，这部分库可以通过 externals 配置不进行打包
 3. 限制 loader 的范围在使用 loader 的时候，可以通过 exclude 排除掉一些不必要的编译，比如 babel-loader 对于那些已经完成打包的第三方库没有必要再降级一次，可以排除掉
 4. 开启 loader 缓存可以利用cache-loader缓存 loader 的编译结果，避免在源码没有变动时反复编译
 5. 开启多线程编译可以利用thread-loader开启多线程编译，提升编译效率

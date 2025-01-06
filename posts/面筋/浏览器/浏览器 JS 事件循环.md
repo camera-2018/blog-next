@@ -29,7 +29,7 @@ RIC 和 RAF 是和帧相关的。
 
 在浏览器中 setTimeout 的延时设置为 0 的话，会默认为 4ms，NodeJS 为 1ms
 
-https://img-blog.csdnimg.cn/cc12512809dd413d8c0ba32d31fe7738.gif
+![](https://img-blog.csdnimg.cn/cc12512809dd413d8c0ba32d31fe7738.gif)
 
 new Promise 是同步执行的，promise.then 里面的回调才是异步的。
 

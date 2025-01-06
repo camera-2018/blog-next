@@ -141,3 +141,7 @@ OpenSSL，它是一个著名的开源密码学程序库和工具包，几乎支�
 - 但为了防止账号、密码被盗，有的时候（比如网上银行）还会使用 U 盾给用户颁发客户端证书，实现“**双向认证**”，这样会更加安全。
 
 双向认证的流程在“**Server Hello Done**”之后，“**Client Key Exchange**”之前，客户端要发送“**Client Certificate**”消息，服务器收到后也把证书链走一遍，验证客户端的身份。
+
+## 服务器名称指示 SNI
+
+在该协议下，在[握手](https://zh.wikipedia.org/wiki/%E6%8F%A1%E6%89%8B_(%E6%8A%80%E6%9C%AF) "握手 (技术)")过程开始时[客户端](https://zh.wikipedia.org/wiki/%E5%AE%A2%E6%88%B7%E7%AB%AF "客户端")告诉它正在连接的[服务器](https://zh.wikipedia.org/wiki/%E6%9C%8D%E5%8A%A1%E5%99%A8 "服务器")要连接的[主机名称](https://zh.wikipedia.org/wiki/%E4%B8%BB%E6%A9%9F%E5%90%8D%E7%A8%B1 "主机名称")。这允许服务器在相同的[IP地址](https://zh.wikipedia.org/wiki/IP%E5%9C%B0%E5%9D%80 "IP地址")和[TCP端口号](https://zh.wikipedia.org/wiki/%E9%80%9A%E8%A8%8A%E5%9F%A0 "端口")上呈现多个[证书](https://zh.wikipedia.org/wiki/%E9%9B%BB%E5%AD%90%E6%86%91%E8%AD%89 "电子证书")，并且因此允许在相同的IP地址上提供多个安全（[HTTPS](https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE "超文本传输安全协议")）网站（或其他任何基于TLS的[服务](https://zh.wikipedia.org/wiki/%E6%9C%8D%E5%8A%A1%E5%99%A8 "服务器")），而不需要所有这些站点使用相同的证书。
