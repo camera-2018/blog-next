@@ -1,3 +1,5 @@
+# state 和 props 区别
+
 相同点：
 
 - 两者都是 JavaScript 对象

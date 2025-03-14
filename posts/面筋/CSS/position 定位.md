@@ -1,4 +1,7 @@
+# position 定位
+
 css 中定位属性 position 解决了元素在页面上精确定位的问题，默认是 static，其他属性值 relative，absolute，fixed，sticky 是可以设置 left top right bottom 上下左右值对其进行定位。具体来说：  
+- static 默认文档流
 - relative 是相对元素原来的位置偏移定位，不脱离文档流，原来的位置空间还保留  
 - absolute 是相对于最近的非 static 祖先元素进行定位，脱离文档流 
 - fixed 相对于视口进行定位，屏幕滚动定位位置不改变  

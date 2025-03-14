@@ -1,6 +1,11 @@
+# Vue3 与 vue2 区别
+
 打包 体积更小 tree-shaking
+
 compositon Api 高内聚，低耦合 减少了`this`指向不明的情况 类型推断好
+
 Typescript支持
+
 响应式 Api 暴露出来 原来是Vue.xxx 现在直接导入
 - diff算法优化
 - 静态提升

@@ -1,6 +1,16 @@
+# 浏览器 JS 事件循环
+
 浏览器是通过事件循环来协调用户操作、脚本执行、渲染、网络请求等操作的调度。通过**任务队列（**可能有多个，看浏览器实现**，**浏览器维护**）**来管理任务
 
 可以分为微任务（micro task）队列和宏任务（macro task）队列。
+
+1. **执行顺序铁律** ：每个事件循环中，**先执行同步代码 ⇒ 清空微任务队列 ⇒ 执行下一个宏任务** 。
+2. 微任务可以认为是**寄生在宏任务结束后** 的“快速通道”任务。
+
+#### 为什么需要区分宏任务和微任务？
+
+- **微任务优先级高** ：确保与当前执行上下文紧密相关的操作**优先执行** （例如 Promise 状态处理、DOM 更新后的回调）。
+- **避免阻塞渲染** ：浏览器通常在宏任务之间执行 UI 渲染，微任务逻辑可以抢在渲染前完成（如 `MutationObserver` 监听 DOM 变化后立即处理）。
 
 具体过程：
 
@@ -23,13 +33,25 @@
 
 RIC 和 RAF 是和帧相关的。  
 
-**宏任务主要包含：script（整体代码）、setTimeout、setInterval、setImmediate、I/O、交互事件。**
+宏任务主要包含：
+- script（整体代码）
+- setTimeout
+- setInterval
+- setImmediate
+- I/O
+- 交互事件
+- requestAnimationFrame
 
-**微任务主要包含：Promise.then()、Promise.catch()、new MutationObserver、process.nextTick() 等。微任务队列不属于任务队列。**
+微任务主要包含
+- Promise.then()
+- Promise.catch()
+- Promise.finally()
+- new MutationObserver
+- process.nextTick() 
+- 微任务队列不属于任务队列
 
 在浏览器中 setTimeout 的延时设置为 0 的话，会默认为 4ms，NodeJS 为 1ms
 
-![](https://img-blog.csdnimg.cn/cc12512809dd413d8c0ba32d31fe7738.gif)
 
 new Promise 是同步执行的，promise.then 里面的回调才是异步的。
 

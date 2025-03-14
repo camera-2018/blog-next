@@ -1,3 +1,5 @@
+# HTML5
+
 - 绘画 canvas
 - ⽤于媒介回放的 video 和 audio 元素
 - 本地离线存储 localStorage ⻓期存储数据，浏览器关闭后数据不丢失 sessionStorage 的数据在浏览器关闭后⾃动删除

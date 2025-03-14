@@ -1,3 +1,5 @@
+# TLS
+
 SSL ：安全套接层（Secure Sockets Layer）
 
 TLS：传输层安全（Transport Layer Security）
@@ -8,6 +10,28 @@ SSL 1.0版本 -> SSL 2.0版本 -> SSL 3.0版本 -> TLS 1.0版本 -> TLS 1.1版�
 - 很多浏览器目前已经完全不支持 SSL
 
 OpenSSL，它是一个著名的开源密码学程序库和工具包，几乎支持所有公开的加密算法和协议，已经成为了事实上的标准，许多应用软件都会使用它作为底层库来实现 TLS 功能，包括常用的 Web 服务器 Apache、Nginx 等。
+
+
+### RSA握手
+
+![](../assets/Pasted%20image%2020250225124734-1.png)
+
+1.浏览器向服务器发送随机数 client_random，TLS 版本和供筛选的加密套件列表。
+2.服务器接收到，立即返回 server_random，确认好双方都支持的加密套件 以及数字证书 (证书中附带公钥 Public key certificate)。
+3.浏览器接收，先验证数字证书。若通过，接着使用加密套件的密钥协商算法 RSA 算法生成另一个随机数 pre_random，并且用证书里的公钥加密，传给服务器。 
+4.服务器用私钥解密这个被加密后的 pre_random
+5.生成最终秘钥
+
+### DH握手
+
+![](../assets/Pasted%20image%2020250225124956-1.png)
+1.浏览器向服务器发送随机数 client_random，TLS 版本和供筛选的加密套件列表。
+2.服务器接收到，立即返回 server_random，确认好双方都支持的加密套件 以及数字证书 (证书中附带公钥)。 同时服务器利用私钥将 client_random，server_random，server_params 签名， 生成服务器签名。然后将签名和 server_params 也发送给客户端。 这里的 server_params 为 DH 算法所需参数。
+3.浏览器接收，先验证数字证书和 _签名_。 若通过，将 client_params 传递给服务器。 这里的 client_params 为 DH 算法所需参数。 
+4.现在客户端和服务器都有 client_params、server_params 两个参数， 因 ECDHE 计算基于 “椭圆曲线离散对数”，通过这两个 DH 参数就能计算出 pre_random。
+
+  
+
 
 ## 如何确保安全？
 
