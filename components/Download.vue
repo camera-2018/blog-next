@@ -19,8 +19,8 @@ const download = () => {
 
 <style scoped>
 button {
-  background-color: #138389;
-  color: #fff;
+  background-color: var(--vp-c-neutral);
+  color: var(--vp-c-neutral-inverse);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -29,7 +29,7 @@ button {
 }
 
 button:hover {
-  background-color: #126050;
+  background-color: color-mix(in srgb, var(--vp-c-neutral) 82%, var(--vp-c-bg));
   transition: background-color 0.2s ease-in-out;
 }
 

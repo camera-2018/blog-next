@@ -159,26 +159,21 @@ const pageArraySm = computed(() => {
   padding: 0rem 0.25rem;
   align-items: center;
   justify-content: center;
-  background-color: #f6f6f7;
+  background-color: var(--vp-c-gray-soft);
   border-radius: 0.25rem;
   cursor: pointer;
 }
 
 .paper-item:hover {
-  background-color: #0099ff0d;
+  background-color: var(--vp-c-brand-soft);
   --un-text-opacity: 1;
   color: var(--vp-c-brand-lighter);
 }
 
 .paper-item.active {
-  background-color: #0099ff0d;
+  background-color: var(--vp-c-neutral);
   --un-text-opacity: 1;
-  color: var(--vp-c-brand-lighter);
+  color: var(--vp-c-neutral-inverse);
 }
 
-@media (prefers-color-scheme: dark) {
-  .paper-item {
-    background-color: #9ca3af0d;
-  }
-}
 </style>

@@ -1,6 +1,6 @@
 // import { defineConfig } from 'vitepress'
 import { withMermaid } from "vitepress-plugin-mermaid";
-import PanguPlugin from 'markdown-it-pangu'
+import PanguPlugin from './markdown/pangu'
 import { fileURLToPath, URL } from 'node:url'
 import VueMacros from 'unplugin-vue-macros/vite'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
@@ -48,8 +48,8 @@ export default withMermaid({
     ["meta", { "name": "twitter:title", "content": "xyxsw 博客" }],
     ["meta", { "name": "twitter:description", "content": "xyxsw 博客" }],
     ["link", { "rel": "manifest", "href": "/manifest.webmanifest" }],
-    ["link", { "rel": "mask-icon", "href": "/safari-pinned-tab.svg", "color": "#5bbad5" }],
-    ["meta", { "name": "msapplication-TileColor", "content": "#2b5797" }],
+    ["link", { "rel": "mask-icon", "href": "/safari-pinned-tab.svg", "color": "#18181b" }],
+    ["meta", { "name": "msapplication-TileColor", "content": "#18181b" }],
     ["meta", { "name": "theme-color", "content": "#ffffff" }],
     ["link", { "rel": "dns-prefetch", "href": "https://fonts.googleapis.com" }],
     ["link", { "rel": "dns-prefetch", "href": "https://fonts.gstatic.com" }],
@@ -106,4 +106,3 @@ export default withMermaid({
     }
   }
 })
-

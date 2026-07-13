@@ -1,5 +1,5 @@
 :root {
-  --vp-c-brand: #2563eb !important;
+  --vp-c-brand: #18181b;
   --vp-c-brand-light: var(--vp-c-brand);
   --vp-c-brand-lighter: var(--vp-c-brand);
   --vp-c-brand-dark: var(--vp-c-brand);
@@ -13,7 +13,7 @@
   --date-font-family: consola, sans-serif;
 }
 .dark {
-  --vp-c-brand: #3b82f6;
+  --vp-c-brand: #fafafa;
 }
 
 /* theme reset start */
@@ -38,7 +38,8 @@ a[rel~="noreferrer"]:visited {
   border-bottom: 1px solid var(--vp-c-brand);
 }
 .content a[rel~="noreferrer"]:hover {
-  color: #888;
+  color: var(--vp-c-brand);
+  opacity: 0.62;
 }
 h1 {
   font-size: 1.5rem !important;

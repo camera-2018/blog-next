@@ -153,17 +153,18 @@ const showTime = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
+  box-shadow: none;
 }
 
 .blog-item {
   position: relative;
-  border: 1px solid rgba(82, 82, 89, 0.32);
+  border: 1px solid var(--vp-c-divider);
   border-radius: 0.5rem;
   padding: 1.5rem;
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
+  box-shadow: none;
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
@@ -172,7 +173,8 @@ const showTime = computed(() => {
 }
 
 .blog-item:hover {
-  border: 1px solid #09f;
+  border: 1px solid var(--mono-emphasis);
+  box-shadow: none;
 }
 
 .info-container {
@@ -213,7 +215,7 @@ const showTime = computed(() => {
   width: 1px;
   height: 8px;
   margin: 0 10px;
-  background-color: #4e5969;
+  background-color: var(--vp-c-divider);
 }
 .cover-img {
   width: 120px;

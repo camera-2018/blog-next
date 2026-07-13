@@ -43,18 +43,18 @@
       transparent 12%,
       #000 16%
   );
-  --rainbow: repeating-linear-gradient(
+  --mono-ray: repeating-linear-gradient(
       100deg,
-      #60a5fa 10%,
-      #e879f9 16%,
-      #5eead4 22%,
-      #60a5fa 30%
+      var(--vp-c-text-1) 10%,
+      var(--vp-c-text-3) 16%,
+      var(--vp-c-divider) 22%,
+      var(--vp-c-text-1) 30%
   );
 
   contain: strict;
   contain-intrinsic-size: 100vw 40vh;
 
-  background-image: var(--stripes), var(--rainbow);
+  background-image: var(--stripes), var(--mono-ray);
   background-size: 300%, 200%;
   background-position: 50% 50%, 50% 50%;
 
@@ -75,7 +75,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: var(--stripes), var(--rainbow);
+  background-image: var(--stripes), var(--mono-ray);
   background-size: 200%, 100%;
   background-attachment: fixed;
   mix-blend-mode: difference;
@@ -94,12 +94,12 @@
 } */
 
 .dark .jumbo {
-  background-image: var(--stripesDark), var(--rainbow);
+  background-image: var(--stripesDark), var(--mono-ray);
   filter: opacity(50%) saturate(200%);
 }
 
 .dark .jumbo::after {
-  background-image: var(--stripesDark), var(--rainbow);
+  background-image: var(--stripesDark), var(--mono-ray);
 }
 </style>
 

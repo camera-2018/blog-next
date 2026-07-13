@@ -21,15 +21,15 @@ const open = () => {
 button {
   width: 100px;
   height: 40px;
-  background-color: #409eff;
-  color: #fff;
+  background-color: var(--vp-c-neutral);
+  color: var(--vp-c-neutral-inverse);
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.button:hover {
-  background-color: #66b1ff;
+button:hover {
+  background-color: color-mix(in srgb, var(--vp-c-neutral) 82%, var(--vp-c-bg));
 }
 
 .pdf {

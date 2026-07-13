@@ -1,0 +1,331 @@
+/**
+ * Progressive CSS Houdini enhancements.
+ * Every effect keeps a readable, static CSS fallback.
+ */
+
+@property --vp-c-brand {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --vp-c-brand-light {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --vp-c-brand-lighter {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --vp-c-brand-dark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --vp-c-brand-darker {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --vp-c-brand-next {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --houdini-title-fill {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --houdini-texture-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #18181b;
+}
+
+@property --houdini-texture-gap {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 34px;
+}
+
+@property --houdini-texture-opacity {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.08;
+}
+
+:root {
+  --mono-rgb: 24 24 27;
+  --mono-ink: rgb(var(--mono-rgb));
+  --mono-muted: rgb(var(--mono-rgb) / 0.62);
+  --mono-emphasis: rgb(var(--mono-rgb) / 0.34);
+  --mono-line: rgb(var(--mono-rgb) / 0.14);
+  --mono-wash: rgb(var(--mono-rgb) / 0.06);
+  --mono-bg: #ffffff;
+  --vp-c-bg: var(--mono-bg);
+  --vp-c-bg-alt: var(--mono-bg);
+  --vp-c-bg-elv: var(--mono-bg);
+  --vp-c-bg-soft: var(--mono-wash);
+  --vp-c-text-1: rgb(var(--mono-rgb));
+  --vp-c-text-2: var(--mono-muted);
+  --vp-c-text-3: var(--mono-muted);
+  --vp-c-divider: var(--mono-line);
+  --vp-c-divider-light: var(--mono-line);
+  --vp-c-gutter: var(--mono-line);
+  --vp-c-gray-1: var(--mono-muted);
+  --vp-c-gray-2: var(--mono-muted);
+  --vp-c-gray-3: var(--mono-muted);
+  --vp-c-gray-soft: var(--mono-wash);
+  --vp-c-mute: var(--mono-wash);
+  --vp-c-neutral: var(--mono-ink);
+  --vp-c-neutral-inverse: var(--mono-bg);
+  --vp-c-brand: #18181b;
+  --vp-c-brand-light: #18181b;
+  --vp-c-brand-lighter: #18181b;
+  --vp-c-brand-dark: #18181b;
+  --vp-c-brand-darker: #18181b;
+  --vp-c-brand-next: #18181b;
+  --vp-c-brand-1: var(--vp-c-brand);
+  --vp-c-brand-2: var(--vp-c-brand-light);
+  --vp-c-brand-3: var(--vp-c-brand-dark);
+  --vp-c-brand-soft: var(--mono-wash);
+  --vp-custom-block-tip-bg: var(--mono-wash) !important;
+  --vp-custom-block-tip-code-bg: var(--mono-wash);
+  --vp-badge-tip-bg: var(--mono-wash) !important;
+  --houdini-texture-color: #18181b;
+  --houdini-texture-gap: 34px;
+  --houdini-texture-opacity: 0.055;
+  --houdini-glow-start: rgb(var(--mono-rgb) / 0.025);
+  --houdini-glow-end: rgb(var(--mono-rgb) / 0.025);
+  --houdini-card-surface: color-mix(in srgb, var(--vp-c-bg) 92%, transparent);
+  --houdini-title-start: #18181b;
+  --houdini-title-end: #18181b;
+}
+
+.dark {
+  --mono-rgb: 250 250 250;
+  --mono-ink: rgb(var(--mono-rgb));
+  --mono-bg: #18181b;
+  --vp-c-brand: #fafafa;
+  --vp-c-brand-light: #fafafa;
+  --vp-c-brand-lighter: #fafafa;
+  --vp-c-brand-dark: #fafafa;
+  --vp-c-brand-darker: #fafafa;
+  --vp-c-brand-next: #fafafa;
+  --vp-c-brand-1: #fafafa;
+  --vp-c-brand-2: #fafafa;
+  --vp-c-brand-3: #fafafa;
+  --vp-c-brand-soft: var(--mono-wash);
+  --vp-custom-block-tip-bg: var(--mono-wash) !important;
+  --vp-custom-block-tip-code-bg: var(--mono-wash);
+  --vp-badge-tip-bg: var(--mono-wash) !important;
+  --houdini-texture-color: #fafafa;
+  --houdini-texture-opacity: 0.06;
+  --houdini-glow-start: rgb(var(--mono-rgb) / 0.025);
+  --houdini-glow-end: rgb(var(--mono-rgb) / 0.025);
+  --houdini-card-surface: color-mix(in srgb, var(--vp-c-bg) 92%, transparent);
+  --houdini-title-start: #fafafa;
+  --houdini-title-end: #fafafa;
+}
+
+.Layout {
+  position: relative;
+  isolation: isolate;
+}
+
+.Layout::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  background-image:
+    radial-gradient(circle at 12% 8%, var(--houdini-glow-start), transparent 28%),
+    radial-gradient(circle at 88% 14%, var(--houdini-glow-end), transparent 24%);
+  background-attachment: fixed;
+}
+
+@supports (background-image: paint(blog-texture)) {
+  .Layout::before {
+    background-image:
+      paint(blog-texture),
+      radial-gradient(circle at 12% 8%, var(--houdini-glow-start), transparent 28%),
+      radial-gradient(circle at 88% 14%, var(--houdini-glow-end), transparent 24%);
+  }
+}
+
+.VPContent .post-list.post-list {
+  position: relative;
+  margin: 0 0 20px;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  background: var(--houdini-card-surface);
+  box-shadow: none;
+  backdrop-filter: blur(12px) saturate(115%);
+  transition: border-color 280ms ease;
+}
+
+.VPContent .post-list.post-list::before {
+  position: absolute;
+  top: 22%;
+  bottom: 22%;
+  left: 0;
+  width: 3px;
+  border-radius: 0 999px 999px 0;
+  content: '';
+  opacity: 0.35;
+  background: var(--vp-c-brand);
+  transform: scaleY(0.38);
+  transform-origin: center;
+  transition:
+    opacity 280ms ease,
+    transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.VPContent .post-list.post-list:hover,
+.VPContent .post-list.post-list:focus-within {
+  border-color: var(--mono-emphasis);
+  background: var(--houdini-card-surface);
+  box-shadow: none;
+}
+
+.VPContent .post-list.post-list:hover::before,
+.VPContent .post-list.post-list:focus-within::before {
+  opacity: 0.9;
+  transform: scaleY(1);
+}
+
+.post-list .post-title a {
+  --houdini-title-fill: 0%;
+  display: inline-block;
+  color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    var(--houdini-title-start) 0%,
+    var(--houdini-title-end) var(--houdini-title-fill),
+    var(--vp-c-text-1) var(--houdini-title-fill),
+    var(--vp-c-text-1) 100%
+  );
+  background-clip: text;
+  transform-origin: left center;
+  transition:
+    --houdini-title-fill 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.post-list:hover .post-title a,
+.post-list:focus-within .post-title a {
+  --houdini-title-fill: 100%;
+  transform: scale(1.075);
+}
+
+.post-info span {
+  border: 1px solid var(--mono-line);
+  border-radius: 999px;
+  background: var(--mono-wash);
+}
+
+.VPNavBarTitle .title {
+  letter-spacing: -0.015em;
+}
+
+.VPNavBarMenuLink.VPNavBarMenuLink {
+  position: relative;
+}
+
+.VPNavBarMenuLink.VPNavBarMenuLink::after {
+  position: absolute;
+  right: 8px;
+  bottom: 10px;
+  left: 8px;
+  height: 2px;
+  border-radius: 999px;
+  content: '';
+  opacity: 0;
+  background: var(--vp-c-brand);
+  transform: scaleX(0.35);
+  transition:
+    opacity 180ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.VPNavBarMenuLink.VPNavBarMenuLink:hover::after {
+  opacity: 0.35;
+}
+
+.VPNavBarMenuLink.VPNavBarMenuLink.active {
+  color: var(--vp-c-brand);
+  font-weight: 650;
+}
+
+.VPNavBarMenuLink.VPNavBarMenuLink.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --houdini-texture-gap: 28px;
+    --houdini-texture-opacity: 0.055;
+  }
+
+  .VPContent .post-list.post-list {
+    margin: 0 0 14px;
+    padding: 18px 16px;
+    border-radius: 13px;
+    backdrop-filter: blur(8px);
+  }
+
+  .post-list:hover .post-title a,
+  .post-list:focus-within .post-title a {
+    transform: scale(1.045);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    animation: none !important;
+  }
+
+  .VPContent .post-list.post-list,
+  .post-list .post-title a,
+  .content-container.fly-in {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .VPContent .post-list.post-list:hover,
+  .VPContent .post-list.post-list:focus-within {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .Layout::before {
+    display: none;
+  }
+
+  .VPContent .post-list.post-list {
+    border-color: CanvasText;
+    background: Canvas;
+    box-shadow: none;
+  }
+
+  .post-list .post-title a {
+    color: LinkText;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+}

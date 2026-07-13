@@ -120,7 +120,7 @@ const pluginLists = computed(() => {
 
 .select-button {
   border-radius: 0.25rem;
-  background-color: #9ca3af0d;
+  background-color: var(--vp-c-gray-soft);
   padding: 0.125rem 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -128,17 +128,17 @@ const pluginLists = computed(() => {
 
 .select-button:hover {
   cursor: pointer;
-  background-color: #9ca3af1a;
+  background-color: var(--vp-c-brand-soft);
 }
 
 .select-button.active {
-  background-color: #0099ff0d;
+  background-color: var(--vp-c-brand-soft);
   --un-text-opacity: 1;
   color: var(--vp-c-brand-lighter);
 }
 
 .divider {
-  background-color: rgba(60, 60, 67, 0.12);
+  background-color: var(--vp-c-divider);
   height: 1px;
 }
 
@@ -165,17 +165,19 @@ const pluginLists = computed(() => {
 
 .card {
   display: block;
-  border: 1px solid rgba(82, 82, 89, 0.32);
+  border: 1px solid var(--vp-c-divider);
   border-radius: 0.5rem;
   padding: 1.5rem;
   width: 100%;
   height: 100%;
+  box-shadow: none;
   transition: border-color 0.25s;
   cursor: pointer;
 }
 
 .card:hover {
-  border: 1px solid #09f;
+  border: 1px solid var(--mono-emphasis);
+  box-shadow: none;
 }
 
 .card-head {
@@ -196,12 +198,11 @@ const pluginLists = computed(() => {
 }
 
 .card-github:hover {
-  fill: #09f;
+  fill: var(--vp-c-brand);
 }
 
 .card-des {
-  color: #3c3c43;
-  opacity: 0.7;
+  color: var(--vp-c-text-2);
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-top: 0.3rem;
@@ -218,7 +219,7 @@ const pluginLists = computed(() => {
 .card-tag {
   margin: 0 0.5rem;
   padding: 0 0.5rem;
-  background-color: #9ca3af2b;
+  background-color: var(--vp-c-gray-soft);
 }
 
 .card-tags .card-tag:first-child {
@@ -247,26 +248,17 @@ const pluginLists = computed(() => {
   align-items: center;
   width: 100%;
   padding: 0.4rem 1rem;
-  background-color: #f6f6f7;
+  background-color: var(--vp-c-gray-soft);
   border-radius: 0.5rem;
   cursor: pointer;
 }
 
 .card-button:hover {
-  color: #09f;
+  color: var(--vp-c-brand);
 }
 
 .card-button:hover {
-  fill: #09f;
+  fill: var(--vp-c-brand);
 }
 
-@media (prefers-color-scheme: dark) {
-  .card-button {
-    background-color: #9ca3af0d;
-  }
-
-  .card-des {
-    color: #9ca3af;
-  }
-}
 </style>
